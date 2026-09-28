@@ -20,6 +20,7 @@ import {
   Files,
   FileText,
   FolderOpen,
+  Github,
   HardDrive,
   LoaderCircle,
   Plus,
@@ -469,6 +470,17 @@ export default function App() {
           <div className="sidebar-foot">
             Folio OCR <span>v0.1</span>
           </div>
+          <a
+            className="author-credit"
+            href="https://github.com/klienn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Built by Klienn — GitHub profile (opens in a new tab)"
+            title="Built by Klienn"
+          >
+            <Github size={14} aria-hidden="true" />
+            <span>Built by Klienn</span>
+          </a>
         </div>
       </aside>
 
