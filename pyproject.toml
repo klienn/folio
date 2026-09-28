@@ -1,0 +1,30 @@
+[project]
+name = "folio-ocr"
+version = "0.1.0"
+description = "Local, page-by-page OCR workspace"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "python-multipart>=0.0.20,<1",
+  "pymupdf>=1.25,<2",
+  "pillow>=11,<13",
+  "rapidocr==3.9.2",
+  "onnxruntime>=1.20,<2",
+  "requests>=2.32,<3",
+  "xlsxwriter>=3.2,<4",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "ruff>=0.11,<1", "psutil>=7,<8", "openpyxl>=3.1,<4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["ocr: actual model downloads and inference (opt in with RUN_OCR_TESTS=1)"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
