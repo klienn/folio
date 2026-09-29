@@ -2,6 +2,12 @@
 
 A local document workspace for uploading, extracting, reviewing, and exporting text. Built with React, TypeScript, FastAPI, SQLite, and RapidOCR / PP-OCRv5 through ONNX Runtime.
 
+[Quick start](#quick-start) · [Watch the demo](#demo) · [Workflow](#workflow)
+
+![Folio OCR document review showing a sample invoice beside its extracted text, with editing and Excel export controls.](docs/assets/document-review.png)
+
+*Compare the original page with extracted text, make corrections, and export the saved result.*
+
 ## Quick start
 
 Install **[Node.js 22+](https://nodejs.org/)** with npm, then run the appropriate command from the project directory. On Windows, you can install it with `winget install --id OpenJS.NodeJS.LTS -e`; reopen your terminal afterward.
@@ -62,12 +68,24 @@ Upload any of the four synthetic files in `samples/`:
 
 Samples have no personal information. You can regenerate them at any time.
 
+## Demo
+
+Upload → extract → review → edit → save → export to Excel, in a 20-second walkthrough:
+
+![Animated Folio OCR walkthrough: upload a sample invoice, choose English and CPU processing, review the extracted text, edit a label, save changes, and export to Excel.](docs/assets/workflow-demo.gif)
+
+*Captured from the running app using the synthetic sample documents and real CPU OCR. Waiting time is shortened; OCR models are already cached.*
+
 ## Workflow
 
 1. **Add documents** or drag files onto the workspace. Choose a language pack, processing device, and optional handwriting mode.
 2. Files enter a persistent queue. Each page gets its own status, preview, extracted text, and processing metadata.
 3. Open a document to compare its original page with the editable text. Changes remain drafts until you select **Save changes**. The original extraction is retained separately.
 4. Export one document, selected documents, or the entire library. Choose **Excel (.xlsx)** for a formatted workbook or **CSV (.csv)** for a plain-text data file.
+
+![Folio OCR document library with four processed sample documents, status filters, search, selection checkboxes, and Excel export controls.](docs/assets/document-library.png)
+
+*Keep images and multi-page PDFs together, track processing status, and export individual documents or the whole library.*
 
 ### Delete documents
 
